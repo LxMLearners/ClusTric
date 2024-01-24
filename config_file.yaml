@@ -1,0 +1,15 @@
+DATA_FILE: "../snapshots/no_nan_aipals_2023_snapshots_independent.csv"
+TOP_FOLDER: "clustric_test/"
+N_CLUST: 4  
+MIN_APP: 3             
+REF_FEATURE: "REF"
+
+TEMPORAL_FEATURES: {
+                  'ALSFRSb':'categorical', 
+                  'ALSFRSsUL':'categorical', 
+                  'ALSFRSsLL':'categorical', 
+                  'ALSFRSsT':'categorical',
+                  'R':'categorical', 
+                  'ALSFRS-R':'categorical', 
+                  'MITOS-stage':'categorical'
+                  }
