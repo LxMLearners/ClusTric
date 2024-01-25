@@ -8,10 +8,8 @@ from scipy.cluster.hierarchy import ward, fcluster, cophenet
 import scipy.cluster.hierarchy as shc
 from sklearn.cluster import AgglomerativeClustering
 import numpy as np
-import os
 import errno
 import pacmap
-from itertools import zip_longest
 import triclustering.constants as constants
 from pathlib import Path
 

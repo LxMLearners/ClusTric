@@ -20,6 +20,22 @@ REF_FEATURE: <feature_to_identify_each_patient>
 
 TEMPORAL_FEATURES: <list_temporal_features>
 ```
-
+### Python version and specific package versions used for analysis listed below:
+```
+Python: 3.10.11
+```
+Packages:
+```
+numpy: 1.23.4
+pandas: 1.5.1
+matplotlib: 3.6.3
+sklearn: 1.2.2
+seaborn: 0.12.2
+scipy: 1.10.0
+pacmap: 0.7.0
+sortedcontainers: 2.4.0
+yaml: 6.0
+```
 ### Relevant Citations
 Full article can be found here: <insert article link>
+
