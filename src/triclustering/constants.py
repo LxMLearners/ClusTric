@@ -25,6 +25,7 @@ def get_config(config_file):
     global SNAPSHOTS_FILE
     global N_CLUST
     global REF_FEATURE
+    global INCLUDE_STATIC
 
     BASELINE_DIR_S = TOP_FOLDER + "baselines/static/"
     BASELINE_DIR_T = TOP_FOLDER + "baselines/temporal/"

@@ -1,9 +1,6 @@
 import pandas as pd
-import datetime as dt
-import math
-import numpy as np
 import constants
-
+from sklearn import preprocessing
 
 def df_to_dict(data, discretize_prog_rate=False):
     """
@@ -94,3 +91,36 @@ def create_matrix_temporal(data, sps, n):
 
     return mats, y
 
+def create_matrix_static(data, sps):
+    y = list()
+    values = list()
+    cols = list()
+    cols.append("Patient_ID")
+    for p in sps.keys():
+        tp = data[p]
+        for snaps in sps[p]:
+            l = list()
+            l.append(p)
+            i = snaps[0][0]
+            l.extend([tp[i][feature]
+                      for feature in tp[i].keys() if feature != "Evolution"])
+
+            values.append(l)
+            y.append(snaps[-1][1])
+
+    cols.extend([f"{feature}"
+                 for feature in tp[i].keys() if feature != "Evolution"])
+
+    mats = pd.DataFrame(data=values,
+                        columns=cols)
+
+    return mats, y
+
+
+
+def label_encoder_als(wri, features):
+    le = preprocessing.LabelEncoder()
+    for f in features:
+        le.fit(wri[f])
+        wri[f] = list(map(lambda a: a+1, le.transform(wri[f])))
+    return wri

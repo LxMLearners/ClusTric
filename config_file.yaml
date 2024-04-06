@@ -1,8 +1,18 @@
-DATA_FILE: "../snapshots/no_nan_aipals_2023_snapshots_independent.csv"
-TOP_FOLDER: "clustric_test/"
+DATA_FILE: "../../MEIC/Tese/snapshots/no_nan_aipals_2023_snapshots_independent_all_static.csv"
+TOP_FOLDER: "temp_test_1app/"
 N_CLUST: 4  
 MIN_APP: 3             
 REF_FEATURE: "REF"
+INCLUDE_STATIC: False
+STATIC_FEATURES: {
+                  'Gender':'categorical',
+                  'Age_onset':'continuos',
+                  'UMNvsLMN':'categorical',
+                  'C9orf72':'categorical',
+                  'BMI_at_1st_visit': continuos,
+                  'Diagnostic Delay': continuos,
+                  'Onset_form': 'categorical'
+                }
 
 TEMPORAL_FEATURES: {
                   'ALSFRSb':'categorical', 

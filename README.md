@@ -17,6 +17,8 @@ TOP_FOLDER: <output_folder_name>
 N_CLUST: <number_of_clusters>  
 MIN_APP: <minimal_number_of_appointments>             
 REF_FEATURE: <feature_to_identify_each_patient>
+INCLUDE_STATIC: <True_if_include_static_data_False_otherwise>
+STATIC_FEATURES: <list_static_features>
 
 TEMPORAL_FEATURES: <list_temporal_features>
 ```

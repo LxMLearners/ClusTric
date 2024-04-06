@@ -18,7 +18,11 @@ def parse_data():
         n = constants.MIN_APP
         matrix_name = constants.MATRICES_DIR_T + "{}TPS/out_1_DistanceMatrix.csv".format(n)
         snapshots_name = constants.DATA_FILE # snapshots file
-        
+
+        if constants.INCLUDE_STATIC:
+            stat_matrix = constants.MATRICES_DIR_S + "{}TPS/out_1_DistanceMatrix.csv".format(n) 
+            st_data = pd.read_csv(stat_matrix)
+
         Path(constants.TRAJECTORY_DIR).mkdir(parents=True, exist_ok=True) 
         Path(constants.VISUALIZATION_DIR).mkdir(parents=True, exist_ok=True) 
     except OSError as exc:
@@ -26,8 +30,9 @@ def parse_data():
             raise
 
     data = pd.read_csv(matrix_name)
+    if constants.INCLUDE_STATIC:
+        data = pd.concat([data, st_data], axis = 1)
     data.drop(data.columns[[-1,]], axis=1, inplace=True) # drop evolution column
-    n_trics = len(data.columns) + 1
     patients = pd.read_csv(snapshots_name)
 
     # remove patietns with less than MIN_APP appointments
@@ -121,6 +126,7 @@ def hierarchical_clustering(data):
     print('Silhouette Score: ', silhouette_score(data, Ward_model.labels_, metric='euclidean'))
     print('Calinski Harabasz Score: ', calinski_harabasz_score(data, Ward_model.labels_))
     print('Davies Bouldin Score: ', davies_bouldin_score(data, Ward_model.labels_))
+    print('IDC: ', clusters[(constants.N_CLUST - 1)*(-1), 2] - clusters[constants.N_CLUST*(-1), 2])
 
     return Ward_model.labels_
 
