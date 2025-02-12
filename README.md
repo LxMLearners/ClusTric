@@ -39,5 +39,7 @@ sortedcontainers: 2.4.0
 yaml: 6.0
 ```
 ### Relevant Citations
-Full article can be found here: <insert article link>
+If you use Clustric in your research, please cite our paper:
+
+M. Amaral, D., Soares, D.F., Gromicho, M. et al. Temporal stratification of amyotrophic lateral sclerosis patients using disease progression patterns. Nat Commun 15, 5717 (2024). https://doi.org/10.1038/s41467-024-49954-y
 
